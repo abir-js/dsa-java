@@ -1,5 +1,5 @@
 
-public class maxSubarraySum {
+public class maxSubarraySumBruteForce {
     public static int maxSubArraySum(int nums[]) {
         int currentSum = 0;
         int maxSum = Integer.MIN_VALUE;
