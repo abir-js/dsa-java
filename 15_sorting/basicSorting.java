@@ -68,6 +68,24 @@ public class basicSorting {
         printArray(arr);
     }
 
+    public static void countingSort(int arr[]) {
+        int largest = Integer.MIN_VALUE;
+        for (int i : arr) {
+            largest = Math.max(largest, i);
+        }
+        int count[] = new int[largest + 1]; // including 0
+        for (int i : arr) {
+            count[i]++;
+        }
+        int index = 0;
+        for (int i = 0; i < count.length; i++) {
+            for (int j = 0; j < count[i]; j++) {
+                arr[index++] = i;
+            }
+        }
+        printArray(arr);
+    }
+
     public static void swap(int[] arr, int i, int j) {
         int temp = arr[i];
         arr[i] = arr[j];
