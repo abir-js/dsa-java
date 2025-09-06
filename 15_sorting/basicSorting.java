@@ -11,6 +11,17 @@ public class basicSorting {
         printArray(arr);
     }
 
+    public static void bubbleSortReverse(int arr[]) {
+        int n = arr.length;
+        for (int i = 0; i < n; i++) {
+            for (int j = n - 1; j > i; j--) {
+                if (arr[j] < arr[j - 1])
+                    swap(arr, j, j - 1);
+            }
+        }
+        printArray(arr);
+    }
+
     public static void selectionSort(int[] arr) {
         for (int i = 0; i < arr.length - 1; i++) {
             int minPosition = i;
@@ -37,15 +48,23 @@ public class basicSorting {
 
     public static void insertionSort(int arr[]) {
         for (int i = 1; i < arr.length; i++) {
-            int curr = arr[i], prev = i - 1;
-            // finding out correct position to insert
-            while (prev >= 0 && arr[prev] > curr) {
-                arr[prev + 1] = arr[prev];
-                prev--;
+            for (int j = i; j > 0; j--) {
+                if (arr[j] < arr[j - 1])
+                    swap(arr, j, j - 1);
             }
-            // insertion
-            arr[prev +  1] = curr;
         }
+        printArray(arr);
+    }
+
+    public static void insertionSortReverse(int arr[]) {
+        int n = arr.length;
+        for (int i = n - 2; i >= 0; i--)
+            for (int j = i; j < n - 1; j++)
+                if (arr[j] > arr[j + 1])
+                    swap(arr, j, j + 1);
+                else
+                    break;
+
         printArray(arr);
     }
 
@@ -63,6 +82,8 @@ public class basicSorting {
 
     public static void main(String[] args) {
         int[] arr = { 5, 4, 1, 3, 2 };
-        insertionSort(arr);
+        // insertionSort(arr);
+        insertionSortReverse(arr);
+
     }
 }
